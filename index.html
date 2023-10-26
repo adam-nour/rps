@@ -7,6 +7,8 @@
   </head>
   <body>
     <script>
+      let computerScore = 0;
+      let playerScore = 0;
       function getComputerChoice() {
         const choice = ["rock", "paper", "scissors"];
         let index = choice[Math.floor(Math.random() * choice.length)];
@@ -15,157 +17,121 @@
       }
       function playRound(playerSelection, computerSelection) {
         playerSelection = playerSelection.toLowerCase();
-        if (
-          playerSelection === "rock" &&
-          computerSelection === "rock"
-        ) {
-          computerScore = 0;
-          playerScore = 0;
-          result = "draw"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+        if (playerSelection === "rock" && computerSelection === "rock") {
+          result =
+            "draw" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "rock" &&
           computerSelection === "paper"
         ) {
-          computerScore = 1;
-          playerScore = 0;
-          result = "rock loses paper(cs) wins"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+          computerScore++;
+          result =
+            "rock loses paper(cs) wins" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "rock" &&
           computerSelection === "scissors"
         ) {
-          computerScore = 0;
-          playerScore = 1;
-          result = "rock wins scissors(cs) loses"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+          playerScore++;
+          result =
+            "rock wins scissors(cs) loses" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "paper" &&
           computerSelection === "paper"
         ) {
-          computerScore = 0;
-          playerScore = 0;
-          result = "draw"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+          result =
+            "draw" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "paper" &&
           computerSelection === "rock"
         ) {
-          computerScore = 0;
-          playerScore = 1;
-          result = "paper wins rock(cs) loses"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+          playerScore++;
+          result =
+            "paper wins rock(cs) loses" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "paper" &&
           computerSelection === "scissors"
         ) {
-          computerScore = 1;
-          playerScore = 0;
-          result = "paper loses scissors(cs) wins"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+          computerScore++;
+          result =
+            "paper loses scissors(cs) wins" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "scissors" &&
           computerSelection === "scissors"
         ) {
-          computerScore = 0;
-          playerScore = 0;
-          result = "draw"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+          result =
+            "draw" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "scissors" &&
           computerSelection === "rock"
         ) {
-          computerScore = 1;
-          playerScore = 0;
-          result = "scissors loses rock(cs) wins"+ " Computer Score " + computerScore + " Player Score " + playerScore;
+          computerScore++;
+          result =
+            "scissors loses rock(cs) wins" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else if (
           playerSelection === "scissors" &&
           computerSelection === "paper"
         ) {
-          computerScore = 0;
-          playerScore = 1;
-          result = "scissors wins paper(cs) loses" + " Computer Score " + computerScore + " Player Score " + playerScore;
+          playerScore++;
+          result =
+            "scissors wins paper(cs) loses" +
+            " Computer Score " +
+            computerScore +
+            " Player Score " +
+            playerScore;
         } else {
           result = "Please type either rock paper scissors";
         }
 
         return [result, computerScore, playerScore];
       }
-//         let computerScore = 0;
-//         let playerScore = 0;
-//       function game() {
 
-//         if (playerSelection === "rock" &&
-//           computerSelection === "rock") {
-//           computerScore = 0;
-//           playerScore = 0;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         } else if (playerSelection === "rock" &&
-//           computerSelection === "paper") {
-//           computerScore = 1;
-//           playerScore = 0;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         } else if (playerSelection === "rock" &&
-//           computerSelection === "scissors") {
-//           computerScore = 0;
-//           playerScore = 1;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         }else if (playerSelection === "paper" &&
-//           computerSelection === "paper") {
-//           computerScore = 0;
-//           playerScore = 0;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         } else if (playerSelection === "paper" &&
-//           computerSelection === "scissors") {
-//           computerScore = 1;
-//           playerScore = 0;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         } else if (playerSelection === "paper" &&
-//           computerSelection === "rock") {
-//           computerScore = 0;
-//           playerScore = 1;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         }else if (playerSelection === "scissors" &&
-//           computerSelection === "scissors") {
-//           computerScore = 0;
-//           playerScore = 0;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         } else if (playerSelection === "scissors" &&
-//           computerSelection === "rock") {
-//           computerScore = 1;
-//           playerScore = 0;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         } else if (playerSelection === "scissors" &&
-//           computerSelection === "paper") {
-//           computerScore = 0;
-//           playerScore = 1;
-//           result = { computerScore: computerScore, playerScore: playerScore }
-//         }
-
-//     return result;
-//       }
-//       function score(){
-//         const sumValues = obj => Object.values(obj).reduce((computerScore, playerScore) => computerScore + playerScore, 0);
-// return sumValues
-//       }
-         function game() {
-
-
-          do{ call(playRound((playerSelection, computerSelection)))
-
-          }
-          while(i < 5);
-
-         }
-      // let [a, b, c] = playRound((playerSelection, computerSelection));
-
-
-      // let playerSelection = prompt("Choose your weapon");
-      let playerSelection ="rock";
-      let computerSelection = getComputerChoice();
-      // const gameSelection = game();
-      // const realScore = score();
-      console.log(playRound(playerSelection, computerSelection));
-      console.log(playerSelection);
-      console.log(computerSelection);
-      // console.log(gameSelection);
-      // console.log(realScore);
-      // console.log(a)
-      // console.log(b)
-      // console.log(c)
+      const game = () => {
+        for (let i = 0; i < 5; i++) {
+          let playerSelection = prompt("whats your choice?");
+          let computerSelection = getComputerChoice();
+          console.log(playRound(playerSelection, computerSelection));
+        }
+        if (playerScore > computerScore) {
+          return "you beat the computer!";
+        } else if (playerScore < computerScore) {
+          return " you lost to the computer!";
+        } else {
+          return " you tied with the computer!";
+        }
+      };
+      console.log(game());
     </script>
   </body>
 </html>
