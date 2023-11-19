@@ -11,9 +11,9 @@
       <div class="container" id="container">YOU NEED 5 WINS TO BEAT THE CHAIRMAN</div>
       <div class="container1" id="container1">SELECT A CARD</div>
       <div class="button-container">
-    <button id="btn"><img src="/Images/rock.png" style="width: 100px; height: 150px;" alt="Submit"></button>
-    <button id="btn1"><img src="/Images/paper.png"style="width: 100px; height: 150px; alt="Submit"></button>
-    <button id="btn2"><img src="/Images/scissors.png"style="width: 100px; height: 150px; alt="Submit"></button>
+    <button id="btn"><img src="rock.png" style="width: 100px; height: 150px;" alt="Submit"></button>
+    <button id="btn1"><img src="paper.png"style="width: 100px; height: 150px; alt="Submit"></button>
+    <button id="btn2"><img src="scissors.png"style="width: 100px; height: 150px; alt="Submit"></button>
     </div>
     
   </div>
@@ -91,7 +91,7 @@
 
       function displayImages(playerChoice, computerChoice) {
         const playerImg = document.createElement("img");
-        playerImg.src = `/Images/${playerChoice}.png`;
+        playerImg.src = `${playerChoice}.png`;
         playerImg.classList.add("player-img");
 
         const vsText = document.createElement("span");
@@ -99,7 +99,7 @@
         vsText.classList.add("vs-text");
 
         const computerImg = document.createElement("img");
-        computerImg.src = `/Images/${computerChoice}.png`;
+        computerImg.src = `${computerChoice}.png`;
         computerImg.classList.add("computer-img");
 
         container1.innerHTML = "";
@@ -140,13 +140,13 @@ const btn = document.querySelector("#btn");
         const image = new Image();
   if (playerScore ===5) {
     
-    image.src = '/Images/kaijiwin.jpg';
+    image.src = 'kaijiwin.jpg';
     image.onload = () => {
       container1.style.backgroundImage = `url('${image.src}')`;
     };
     return "you beat the Chairman!";
   } else if (computerScore === 5) {
-    image.src = '/Images/lose.jpg';
+    image.src = 'lose.jpg';
     image.onload = () => {
       container1.style.backgroundImage = `url('${image.src}')`;
     };
