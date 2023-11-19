@@ -8,8 +8,8 @@
   </head>
   <body>
     <div class="flex-container">
-      <div class="container" id="container"></div>
-      <div class="container1" id="container1"></div>
+      <div class="container" id="container">YOU NEED 5 WINS TO BEAT THE CHAIRMAN</div>
+      <div class="container1" id="container1">SELECT A CARD</div>
       <div class="button-container">
     <button id="btn"><img src="/Images/rock.png" style="width: 100px; height: 150px;" alt="Submit"></button>
     <button id="btn1"><img src="/Images/paper.png"style="width: 100px; height: 150px; alt="Submit"></button>
@@ -30,7 +30,12 @@
 
         return index;
       }
+
+      let shouldStop = 'GAME OVER';
       function playRound(playerSelection, computerSelection) {
+        if(playerScore ===5 || computerScore===5){
+          return shouldStop;
+        }else{
     playerSelection = playerSelection.toLowerCase();
     let result = '';
 
@@ -56,7 +61,7 @@
 
     return `${gameResult}\n${scores}`;
 }
-
+      }
 
 
 
