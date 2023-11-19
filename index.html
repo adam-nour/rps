@@ -4,21 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="flex-container">
+      <div class="container" id="container"></div>
+      <div class="container1" id="container1"></div>
+      <div class="button-container">
     <button id="btn"><img src="/Images/rock.png" style="width: 100px; height: 150px;" alt="Submit"></button>
-    <br />
-    <br />
     <button id="btn1"><img src="/Images/paper.png"style="width: 100px; height: 150px alt="Submit"></button>
-    <br />
-    <br />
     <button id="btn2"><img src="/Images/scissors.png"style="width: 100px; height: 150px alt="Submit"></button>
+    </div>
+    
+  </div>
+    
     <br />
     <br />
-    <div id="container"></div>
-    <br />
-    <br />
-    <div id="container1"></div>
+    
     <script>
       let computerScore = 0;
       let playerScore = 0;
@@ -29,106 +31,35 @@
         return index;
       }
       function playRound(playerSelection, computerSelection) {
-        playerSelection = playerSelection.toLowerCase();
-        if (playerSelection === "rock" && computerSelection === "rock") {
-          result =
-            "draw" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "rock" &&
-          computerSelection === "paper"
-        ) {
-          computerScore++;
-          result =
-            "rock loses paper(cs) wins" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "rock" &&
-          computerSelection === "scissors"
-        ) {
-          playerScore++;
-          result =
-            "rock wins scissors(cs) loses" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "paper" &&
-          computerSelection === "paper"
-        ) {
-          result =
-            "draw" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "paper" &&
-          computerSelection === "rock"
-        ) {
-          playerScore++;
-          result =
-            "paper wins rock(cs) loses" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "paper" &&
-          computerSelection === "scissors"
-        ) {
-          computerScore++;
-          result =
-            "paper loses scissors(cs) wins" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "scissors" &&
-          computerSelection === "scissors"
-        ) {
-          result =
-            "draw" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "scissors" &&
-          computerSelection === "rock"
-        ) {
-          computerScore++;
-          result =
-            "scissors loses rock(cs) wins" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else if (
-          playerSelection === "scissors" &&
-          computerSelection === "paper"
-        ) {
-          playerScore++;
-          result =
-            "scissors wins paper(cs) loses" +
-            " Computer Score " +
-            computerScore +
-            " Player Score " +
-            playerScore;
-        } else {
-          result = "ERROR HAS OCCUR NO SELECTION";
-        }
+    playerSelection = playerSelection.toLowerCase();
+    let result = '';
 
-        return result
-      }
+    if (playerSelection === computerSelection) {
+        result =
+            `Player: (${playerSelection}) draw | Chairman: (${computerSelection}) draw`;
+    } else if (
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+    ) {
+        playerScore++;
+        result =
+            `Player: (${playerSelection}) wins | Chairman: (${computerSelection}) loses`;
+    } else {
+        computerScore++;
+        result =
+            `Player: (${playerSelection}) loses | Chairman: (${computerSelection}) wins`;
+    }
+
+    const gameResult = result;
+    const scores = `Chairman Score: ${computerScore} | Player Score: ${playerScore}`;
+
+    return `${gameResult}\n${scores}`;
+}
+
+
+
+
 
      
       const btn = document.querySelector("#btn");
@@ -161,9 +92,9 @@
       const game = () => {
 
         if (playerScore == 5 ) {
-          return "you beat the computer!";
+          return "you beat the Chairman!";
         } else if (computerScore == 5){
-          return " you lost to the computer!";
+          return " you lost to the Chairman!";
         } 
       };
       
