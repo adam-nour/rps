@@ -12,8 +12,8 @@
       <div class="container1" id="container1"></div>
       <div class="button-container">
     <button id="btn"><img src="/Images/rock.png" style="width: 100px; height: 150px;" alt="Submit"></button>
-    <button id="btn1"><img src="/Images/paper.png"style="width: 100px; height: 150px alt="Submit"></button>
-    <button id="btn2"><img src="/Images/scissors.png"style="width: 100px; height: 150px alt="Submit"></button>
+    <button id="btn1"><img src="/Images/paper.png"style="width: 100px; height: 150px; alt="Submit"></button>
+    <button id="btn2"><img src="/Images/scissors.png"style="width: 100px; height: 150px; alt="Submit"></button>
     </div>
     
   </div>
@@ -62,42 +62,96 @@
 
 
      
-      const btn = document.querySelector("#btn");
-      btn.addEventListener("click", () => {
-        let playerSelection = "rock";
-        let computerSelection = getComputerChoice();
-        container.textContent=(playRound(playerSelection, computerSelection));
-        container1.textContent=(game());
-      });
+      // const btn = document.querySelector("#btn");
+      // btn.addEventListener("click", () => {
+      //   let playerSelection = "rock";
+      //   let computerSelection = getComputerChoice();
+      //   container.textContent=(playRound(playerSelection, computerSelection));
+      //   container1.textContent=(game());
+      // });
+      // const btn1 = document.querySelector("#btn1");
+      // btn1.addEventListener("click", () => {
+      //   let playerSelection = "paper";
+      //   let computerSelection = getComputerChoice();
+      //   container.textContent=(playRound(playerSelection, computerSelection));
+      //   container1.textContent=(game());
+      // });
+      // const btn2 = document.querySelector("#btn2");
+      // btn2.addEventListener("click", () => {
+      //   let playerSelection = "scissors";
+      //   let computerSelection = getComputerChoice();
+      //   container.textContent=(playRound(playerSelection, computerSelection));
+      //   container1.textContent=(game());
+      // });
+
+      function displayImages(playerChoice, computerChoice) {
+        const playerImg = document.createElement("img");
+        playerImg.src = `/Images/${playerChoice}.png`;
+        playerImg.classList.add("player-img");
+
+        const vsText = document.createElement("span");
+        vsText.textContent = "VS";
+        vsText.classList.add("vs-text");
+
+        const computerImg = document.createElement("img");
+        computerImg.src = `/Images/${computerChoice}.png`;
+        computerImg.classList.add("computer-img");
+
+        container1.innerHTML = "";
+        container1.appendChild(playerImg);
+        container1.appendChild(vsText);
+        container1.appendChild(computerImg);
+      }
+
+// Function to play the game and update UI
+function playGame(playerSelection) {
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerSelection, computerSelection);
+  container.textContent = result;
+  const gameOutcome = game();
+displayImages(playerSelection, computerSelection);
+  // if (gameOutcome === "you beat the Chairman!") {
+    
+  // } else if (gameOutcome === "you lost to the Chairman!") {
+  //   // Handle game loss
+  // }
+}
+
+// Event listeners for buttons
+const btn = document.querySelector("#btn");
+      btn.addEventListener("click", () => playGame("rock"));
+
       const btn1 = document.querySelector("#btn1");
-      btn1.addEventListener("click", () => {
-        let playerSelection = "paper";
-        let computerSelection = getComputerChoice();
-        container.textContent=(playRound(playerSelection, computerSelection));
-        container1.textContent=(game());
-      });
+      btn1.addEventListener("click", () => playGame("paper"));
+
       const btn2 = document.querySelector("#btn2");
-      btn2.addEventListener("click", () => {
-        let playerSelection = "scissors";
-        let computerSelection = getComputerChoice();
-        container.textContent=(playRound(playerSelection, computerSelection));
-        container1.textContent=(game());
-      });
-
-
+      btn2.addEventListener("click", () => playGame("scissors"));
       const container = document.querySelector("#container");
 
 
       const container1 = document.querySelector("#container1");
-      const game = () => {
 
-        if (playerScore == 5 ) {
-          return "you beat the Chairman!";
-        } else if (computerScore == 5){
-          return " you lost to the Chairman!";
-        } 
-      };
+      const game = () => {
+        const image = new Image();
+  if (playerScore ===5) {
+    
+    image.src = '/Images/kaijiwin.jpg';
+    image.onload = () => {
+      container1.style.backgroundImage = `url('${image.src}')`;
+    };
+    return "you beat the Chairman!";
+  } else if (computerScore === 5) {
+    image.src = '/Images/lose.jpg';
+    image.onload = () => {
+      container1.style.backgroundImage = `url('${image.src}')`;
+    };
+    return "you lost to the Chairman!";
+  }
+};
       
     </script>
   </body>
 </html>
+
+
+

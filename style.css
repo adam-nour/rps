@@ -1,23 +1,44 @@
 /* style.css */
-
+body{
+    font-family: "Arial", sans-serif;
+    color: white;
+    background-color: black;
+}
 .flex-container {
     display: flex;
     flex-direction: column;
     height: 100vh; 
   }
-  
+  .player-img,
+.computer-img {
+  width: 200px;
+  height: 300px;
+  opacity: 0.2
+  /* Additional styles for the images */
+}
+
+.vs-text {
+  margin: 0 20px;
+  font-weight: bold;
+}
   .container {
     flex: 1; 
-    background-color: lightblue;
+    background-color: rgb(31, 31, 31);
     font-weight: bold;
     font-size: 26px;
     text-align: center;
+    position: relative;
 
   }
   
   .container1 {
     flex: 6; 
-    background-color: lightgreen;
+    background-size: cover; 
+    background-position: center; 
+    background-color: rgb(57, 57, 57);
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
   }
   
   .button-container {
@@ -25,16 +46,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: lightcoral;
+    background-color: rgb(0, 0, 0);
   }
   
 
   button {
     background-color: black;
     border: none;
-    margin: 5px;
+    border-radius: 8px;
   }
- 
+  button:hover {
+    border: 3px solid white; /* Change border color to white on hover */
+  }
 
 
 
