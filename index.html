@@ -12,8 +12,8 @@
       <div class="container1" id="container1">SELECT A CARD</div>
       <div class="button-container">
     <button id="btn"><img src="rock.png" style="width: 100px; height: 150px;" alt="Submit"></button>
-    <button id="btn1"><img src="paper.png"style="width: 100px; height: 150px; alt="Submit"></button>
-    <button id="btn2"><img src="scissors.png"style="width: 100px; height: 150px; alt="Submit"></button>
+    <button id="btn1"><img src="paper.png"style="width: 100px; height: 150px;" alt="Submit"></button>
+    <button id="btn2"><img src="scissors.png"style="width: 100px; height: 150px;" alt="Submit"></button>
     </div>
     
   </div>
@@ -34,7 +34,9 @@
       let shouldStop = 'GAME OVER';
       function playRound(playerSelection, computerSelection) {
         if(playerScore ===5 || computerScore===5){
+          
           return shouldStop;
+
         }else{
     playerSelection = playerSelection.toLowerCase();
     let result = '';
@@ -57,9 +59,9 @@
     }
 
     const gameResult = result;
-    const scores = `Chairman Score: ${computerScore} | Player Score: ${playerScore}`;
+    const scores = ` Player Score: ${playerScore} || Chairman Score: ${computerScore}`;
 
-    return `${gameResult}\n${scores}`;
+    return `${scores}`;
 }
       }
 
@@ -103,9 +105,10 @@
         computerImg.classList.add("computer-img");
 
         container1.innerHTML = "";
-        container1.appendChild(playerImg);
-        container1.appendChild(vsText);
         container1.appendChild(computerImg);
+        container1.appendChild(vsText);
+        container1.appendChild(playerImg);
+        
       }
 
 // Function to play the game and update UI
@@ -143,12 +146,16 @@ const btn = document.querySelector("#btn");
     image.src = 'kaijiwin.jpg';
     image.onload = () => {
       container1.style.backgroundImage = `url('${image.src}')`;
+      container1.innerHTML = '';
+
     };
     return "you beat the Chairman!";
   } else if (computerScore === 5) {
     image.src = 'lose.jpg';
     image.onload = () => {
       container1.style.backgroundImage = `url('${image.src}')`;
+      container1.innerHTML = '';
+
     };
     return "you lost to the Chairman!";
   }
