@@ -75,7 +75,7 @@ body {
     background: url(table.jpg);
     flex: 3; 
     flex-direction: column;
-    background-size: fill; 
+    background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
     background-color: rgb(13, 13, 13);
