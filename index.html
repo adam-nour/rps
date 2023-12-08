@@ -8,8 +8,8 @@
   </head>
   <body>
     <div class="flex-container">
-      <div class="container" id="container">YOU NEED 5 WINS TO BEAT THE CHAIRMAN</div>
-      <div class="container1" id="container1">SELECT A CARD</div>
+      <div class="container" id="container">YOU NEED 5 WINS TO BEAT THE CHAIRMAN SELECT A CARD</div>
+      <div class="container1" id="container1"></div>
       <div class="button-container">
     <button id="btn"><img src="rock.png" style="width: 100px; height: 150px;" alt="Submit"></button>
     <button id="btn1"><img src="paper.png"style="width: 100px; height: 150px;" alt="Submit"></button>
@@ -96,7 +96,7 @@
         playerImg.src = `${playerChoice}.png`;
         playerImg.classList.add("player-img");
 
-        const vsText = document.createElement("span");
+        const vsText = document.createElement("div");
         vsText.textContent = "VS";
         vsText.classList.add("vs-text");
 
@@ -105,9 +105,11 @@
         computerImg.classList.add("computer-img");
 
         container1.innerHTML = "";
-        container1.appendChild(computerImg);
-        container1.appendChild(vsText);
         container1.appendChild(playerImg);
+        container1.appendChild(vsText);
+        container1.appendChild(computerImg);
+        
+        
         
       }
 
